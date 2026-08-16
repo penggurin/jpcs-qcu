@@ -199,53 +199,6 @@ function Navbar() {
   );
 }
 
-// ── 3D tilt card ─────────────────────────────────────────────────────
-function TiltCard({ children, className }) {
-  const cardRef = useRef(null);
-  const rafRef  = useRef(null);
-  const current = useRef({ rx: 0, ry: 0 });
-  const target  = useRef({ rx: 0, ry: 0 });
-
-  useEffect(() => {
-    const el = cardRef.current;
-    const onMove = (e) => {
-      const rect = el.getBoundingClientRect();
-      const cx = rect.width / 2, cy = rect.height / 2;
-      target.current.rx =  ((e.clientY - rect.top  - cy) / cy) * 12;
-      target.current.ry = -((e.clientX - rect.left - cx) / cx) * 12;
-    };
-    const onLeave = () => { target.current.rx = 0; target.current.ry = 0; };
-    const animate = () => {
-      const lerp = 0.08;
-      current.current.rx += (target.current.rx - current.current.rx) * lerp;
-      current.current.ry += (target.current.ry - current.current.ry) * lerp;
-      el.style.transform = `perspective(900px) rotateX(${current.current.rx}deg) rotateY(${current.current.ry}deg) scale3d(1.02,1.02,1.02)`;
-      const shine = el.querySelector('.tilt-shine');
-      if (shine) {
-        const px = (current.current.ry / 12 + 1) / 2 * 100;
-        const py = (current.current.rx / 12 + 1) / 2 * 100;
-        shine.style.background = `radial-gradient(circle at ${px}% ${py}%, rgba(255,255,255,0.08) 0%, transparent 65%)`;
-      }
-      rafRef.current = requestAnimationFrame(animate);
-    };
-    el.addEventListener('mousemove', onMove);
-    el.addEventListener('mouseleave', onLeave);
-    rafRef.current = requestAnimationFrame(animate);
-    return () => {
-      el.removeEventListener('mousemove', onMove);
-      el.removeEventListener('mouseleave', onLeave);
-      cancelAnimationFrame(rafRef.current);
-    };
-  }, []);
-
-  return (
-    <div ref={cardRef} className={`tilt-card ${className || ''}`}>
-      <div className="tilt-shine" />
-      {children}
-    </div>
-  );
-}
-
 // ── Hero section ─────────────────────────────────────────────────────
 function HeroSection() {
   const canvasRef = useRef(null);
@@ -261,12 +214,11 @@ function HeroSection() {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx    = canvas.getContext('2d');
-    let W, H, raf, tick = 0;
+    let W, H, raf;
 
     // Colours — maroon → red-orange → amber
     const C = ['rgba(180,30,30,', 'rgba(200,60,20,', 'rgba(190,100,20,'];
     const BEND = 8;   // corner radius (px)
-    const STEP = 8;   // wire spacing inside a fan (px)
 
     // ── helpers ──────────────────────────────────────────────────────
     // Convert fractional (fx,fy) in [0,1] to canvas px, snapped to grid G

@@ -360,6 +360,7 @@ function HeroSection() {
     build();
 
     // ── Render loop ──────────────────────────────────────────────────
+    let tick = 0;
     const draw = () => {
       // Stop the loop entirely on mobile — no drawing, no RAF cost
       if (isMobile()) {

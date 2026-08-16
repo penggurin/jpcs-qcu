@@ -2013,10 +2013,17 @@ ul { list-style: none; }
   .hero-v2-panel { display: none; }
 }
 @media (max-width: 600px) {
-  .hero-v2-title { font-size: 14vw; }
+  .hero-v2-title { font-size: clamp(28px, 8.5vw, 44px); letter-spacing: 2px; white-space: nowrap; }
+  .hero-v2-sub1  { font-size: 9px; letter-spacing: 2px; }
+  .hero-v2-sub2  { font-size: clamp(9px, 2.8vw, 12px); letter-spacing: 1.5px; }
+  .hero-v2-tagline { font-size: clamp(14px, 4vw, 18px); }
   .hero-v2-buttons { flex-direction: column; align-items: center; }
   .btn-v2-primary, .btn-v2-ghost { width: 240px; justify-content: center; }
 }
+@media (max-width: 360px) {
+  .hero-v2-title { font-size: 26px; letter-spacing: 1px; }
+}
+
 
 /* ═══════════════════════════════════════════════════════════════════
    HOME — ABOUT THE CHAPTER SECTION
@@ -2655,8 +2662,31 @@ ul { list-style: none; }
 }
 
 
-/* principle-card & objective-card already use CSS animation for entrance;
-   override with reveal when JS IntersectionObserver is available */
+/* ── Intro animation — mobile size fixes ── */
+@media (max-width: 600px) {
+  .intro-bracket {
+    font-size: clamp(28px, 10vw, 44px);
+  }
+  .intro-bracket-content .hero-v2-title {
+    font-size: clamp(20px, 7vw, 32px);
+    letter-spacing: 2px;
+  }
+  .intro-overlay--expand .intro-bracket-left,
+  .intro-overlay--reveal .intro-bracket-left {
+    transform: translateX(clamp(-60px, -10vw, -28px));
+  }
+  .intro-overlay--expand .intro-bracket-right,
+  .intro-overlay--reveal .intro-bracket-right {
+    transform: translateX(clamp(28px, 10vw, 60px));
+  }
+  .intro-bracket-content {
+    max-width: 50vw;
+  }
+  .intro-overlay--expand .intro-bracket-content,
+  .intro-overlay--reveal .intro-bracket-content {
+    max-width: 44vw;
+  }
+}
 .principle-card.reveal,
 .objective-card.reveal {
   animation: none;  /* let reveal class handle visibility */
@@ -3157,4 +3187,11 @@ ul { list-style: none; }
 @media (prefers-reduced-motion: reduce) {
   .cursor-ring { display: none; }
   .cursor-dot  { transition: none; }
+}
+
+/* principle-card & objective-card already use CSS animation for entrance;
+   override with reveal when JS IntersectionObserver is available */
+.principle-card.reveal,
+.objective-card.reveal {
+  animation: none;
 }

@@ -360,7 +360,6 @@ function HeroSection() {
     build();
 
     // ── Render loop ──────────────────────────────────────────────────
-    let tick = 0;
     const draw = () => {
       // Stop the loop entirely on mobile — no drawing, no RAF cost
       if (isMobile()) {
@@ -368,7 +367,6 @@ function HeroSection() {
         return;
       }
 
-      tick++;
       ctx.clearRect(0, 0, W, H);
 
       // Subtle dot grid

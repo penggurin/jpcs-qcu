@@ -110,35 +110,44 @@ const partnerLogos = [
 ];
 
 // ── Animated counter ──────────────────────────────────────────────
-function useCounter(target, duration = 1400, delay = 200) {
-  const [value, setValue] = useState(0);
+function animateCount(target, duration, delay, setValue) {
+  setTimeout(() => {
+    let start = 0;
+    const step = Math.ceil(target / (duration / 30));
+    const tick = () => {
+      start += step;
+      if (start >= target) { setValue(target); return; }
+      setValue(start); setTimeout(tick, 30);
+    };
+    tick();
+  }, delay);
+}
+
+function useStats(targets, duration = 1400) {
   const ref = useRef(null);
+  const [values, setValues] = useState(targets.map(() => 0));
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const io = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) return;
       io.disconnect();
-      setTimeout(() => {
-        let start = 0;
-        const step = Math.ceil(target / (duration / 30));
-        const tick = () => {
-          start += step;
-          if (start >= target) { setValue(target); return; }
-          setValue(start); setTimeout(tick, 30);
-        };
-        tick();
-      }, delay);
-    }, { threshold: 0.3 });
+      targets.forEach((target, i) => {
+        animateCount(target, duration, i * 100, (v) =>
+          setValues(prev => { const next = [...prev]; next[i] = v; return next; })
+        );
+      });
+    }, { threshold: 0.2 });
     io.observe(el);
     return () => io.disconnect();
-  }, [target, duration, delay]);
-  return { value, ref };
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  return { values, ref };
 }
 
 // ── Marquee ───────────────────────────────────────────────────────
 function LogoMarquee() {
-  const items = [...partnerLogos, ...partnerLogos];
+  // Quadruple the items so the track is always wider than the viewport
+  const items = [...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos];
   return (
     <section className="marquee-section">
       <div className="marquee-header">
@@ -217,9 +226,7 @@ const objectives = [
 
 // ── Main component ────────────────────────────────────────────────
 function About() {
-  const members  = useCounter(50);
-  const events   = useCounter(5,  1200);
-  const chapters = useCounter(12, 1400);
+  const { values, ref } = useStats([50, 6, 9]);
 
   return (
     <div className="page-wrapper about-page-wrapper">
@@ -302,7 +309,7 @@ function About() {
             </div>
           </div>
 
-          <div className="about-stats reveal" ref={members.ref}>
+          <div className="about-stats reveal" ref={ref}>
             <div className="about-stat">
               <div className="about-stat-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="26" height="26">
@@ -310,7 +317,7 @@ function About() {
                   <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                 </svg>
               </div>
-              <div className="about-stat-number">{members.value}+</div>
+              <div className="about-stat-number">{values[0]}+</div>
               <div className="about-stat-label">MEMBERS ACTIVE</div>
               <div className="about-stat-desc">Real students. Real code.</div>
             </div>
@@ -323,7 +330,7 @@ function About() {
                   <polyline points="9 16 11 18 15 14"/>
                 </svg>
               </div>
-              <div className="about-stat-number">{events.value}+</div>
+              <div className="about-stat-number">{values[1]}+</div>
               <div className="about-stat-label">ANNUAL EVENTS</div>
               <div className="about-stat-desc">Hackathons, webinars &amp; mixers.</div>
             </div>
@@ -334,9 +341,9 @@ function About() {
                   <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
                 </svg>
               </div>
-              <div className="about-stat-number">{chapters.value}</div>
-              <div className="about-stat-label">MAJOR CHAPTERS</div>
-              <div className="about-stat-desc">Nationwide recognition.</div>
+              <div className="about-stat-number">{values[2]}+</div>
+              <div className="about-stat-label">JOINED EVENTS YEARLY</div>
+              <div className="about-stat-desc">Competitions, talks &amp; collaborations.</div>
             </div>
           </div>
 

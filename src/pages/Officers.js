@@ -145,7 +145,7 @@ const deputies = [
   { name: 'Annette Mikalah Q. Alconaba',       role: 'Deputy Director, Documentation & Compliance', img: null, socials: { ...PH } },
   { name: 'Mary Hae Flordelize M. Sambrano',   role: 'Deputy Director, Human Resources',            img: require('../officers/sambrano.jpg'), socials: { ...PH } },
   { name: 'Reymart A. Rivera',                 role: 'Deputy Director, Financial Treasury',         img: require('../officers/rivera.jpg'), socials: { ...PH } },
-  { name: 'Lorraine Chua',                     role: 'Deputy Director, Internal Audit',             img: null, socials: { ...PH } },
+  { name: 'Lorraine Chua',                     role: 'Deputy Director, Internal Audit',             img: require('../officers/chuagirl.jpeg'), socials: { ...PH } },
   { name: 'Ana Beatriz T. Bosito',             role: 'Deputy Director, Creative Media',             img: null, socials: { ...PH } },
   { name: 'Elieza Mae Z. Gabion',              role: 'Deputy Director, Marketing & Publicity',      img: null, socials: { ...PH } },
   { name: 'Elisha Marianne S. Valeroso',       role: 'Deputy Director, Partnerships & Sponsorships',img: null, socials: { ...PH } },
@@ -153,7 +153,7 @@ const deputies = [
 ];
 
 const bog = [
-  { name: 'Migel Rodrene V. Papa',    role: 'Board of Governors – 2nd Year', img: null, socials: { ...PH } },
+  { name: 'Migel Rodrene V. Papa',    role: 'Board of Governors – 2nd Year', img: require('../officers/papa.jpeg'), socials: { ...PH } },
   { name: 'Jilian Rai R. Tusañeza',   role: 'Board of Governors – 2nd Year', img: require('../officers/tusaneza.jpg'), socials: { ...PH } },
 ];
 

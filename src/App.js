@@ -55,13 +55,17 @@ function ScrollToTop() {
 export function useReveal() {
   const location = useLocation();
   useEffect(() => {
-    const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
-    const io = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }),
-      { threshold: 0.12 }
-    );
-    els.forEach(el => io.observe(el));
-    return () => io.disconnect();
+    let io;
+    // Small delay so the incoming page's elements are in the DOM before we observe
+    const timer = setTimeout(() => {
+      const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+      io = new IntersectionObserver(
+        entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }),
+        { threshold: 0.12 }
+      );
+      els.forEach(el => io.observe(el));
+    }, 50);
+    return () => { clearTimeout(timer); if (io) io.disconnect(); };
   }, [location.pathname]);
 }
 
@@ -628,7 +632,7 @@ function AboutChapter() {
             </div>
             <div className="home-about-stat-divider" />
             <div className="home-about-stat">
-              <div className="home-about-stat-num">10+</div>
+              <div className="home-about-stat-num">6+</div>
               <div className="home-about-stat-label">ANNUAL EVENTS</div>
             </div>
             <div className="home-about-stat-divider" />

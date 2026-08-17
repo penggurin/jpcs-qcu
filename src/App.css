@@ -192,7 +192,7 @@ ul { list-style: none; }
 }
 @keyframes marquee-scroll {
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  to   { transform: translateX(-25%); }
 }
 @keyframes glow-pulse {
   0%,100% { opacity: 0.15; }
@@ -652,6 +652,10 @@ ul { list-style: none; }
   border: 1px solid var(--glass-border); border-radius: 14px;
   backdrop-filter: blur(12px);
 }
+.about-stats:hover {
+  border-color: rgba(201,168,76,0.3); transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(201,168,76,0.07);
+}
 .about-stat { flex: 1; display: flex; flex-direction: column; gap: 6px; padding: 0 28px; }
 .about-stat:first-child { padding-left: 0; }
 .about-stat:last-child  { padding-right: 0; }
@@ -680,6 +684,10 @@ ul { list-style: none; }
   padding: 48px 52px;
   display: grid; grid-template-columns: 180px 1fr; gap: 48px; align-items: center;
   backdrop-filter: blur(10px);
+}
+.about-history-inner:hover {
+  border-color: rgba(201,168,76,0.3); transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(201,168,76,0.07);
 }
 .about-history-logo { display: flex; align-items: center; justify-content: center; }
 .about-history-img {
@@ -3091,8 +3099,7 @@ ul { list-style: none; }
   .officers-sweep,
   .contact-sweep { animation: none; }
 
-  .marquee-track { animation-play-state: paused; }
-  /* ev-showcase tracks are interactive (pause-on-hover) — leave them running */
+  /* ev-showcase and marquee tracks are intentional — leave them running */
 
   .hero-v2-scroll-wheel,
   .hero-logo-big,

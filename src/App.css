@@ -929,13 +929,22 @@ ul { list-style: none; }
 .ev-card {
   background: var(--glass); border: 1px solid var(--glass-border);
   border-radius: 12px; overflow: hidden;
-  opacity: 0; animation: fade-up 0.5s ease forwards;
   backdrop-filter: blur(10px);
-  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
   display: flex; flex-direction: column;
+  cursor: pointer;
+  /* base transition for hover */
+  transition: border-color 0.3s, transform 0.35s ease, box-shadow 0.3s;
+  /* start hidden — animation fills in */
+  opacity: 0;
+  animation: ev-card-in 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+@keyframes ev-card-in {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 .ev-card:hover {
-  border-color: rgba(201,168,76,0.25); transform: translateY(-4px);
+  border-color: rgba(201,168,76,0.25);
+  transform: translateY(-4px);
   box-shadow: 0 8px 32px rgba(0,0,0,0.4);
 }
 .ev-card-img { position: relative; aspect-ratio: 16/9; overflow: hidden; }
@@ -1286,13 +1295,17 @@ ul { list-style: none; }
   transition: filter 0.45s ease, transform 0.45s ease, box-shadow 0.45s ease;
 }
 .officer-card-new:hover {
-  filter: grayscale(0) brightness(1); transform: scale(1.05);
+  filter: grayscale(0) brightness(1);
   box-shadow: 0 0 0 2px rgba(201,168,76,0.5), 0 16px 48px rgba(0,0,0,0.7); z-index: 2;
 }
 .officer-card-large { aspect-ratio: 3 / 4.2; }
 
-.officer-photo-wrap { position: absolute; inset: 0; }
-.officer-photo { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+.officer-photo-wrap { position: absolute; inset: 0; overflow: hidden; }
+.officer-photo {
+  width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block;
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.officer-card-new:hover .officer-photo { transform: scale(1.1); }
 .officer-photo-placeholder {
   width: 100%; height: 100%;
   background: linear-gradient(160deg, #1c1420 0%, #100e16 100%);
@@ -1818,7 +1831,7 @@ ul { list-style: none; }
 }
 /* Keep hover working after reveal is done */
 .officer-card-new.reveal-scale.visible:hover {
-  transform: scale(1.05) translateY(0);
+  transform: translateY(0);
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -3125,7 +3138,8 @@ ul { list-style: none; }
 
   /* One-shot fade-up keyframe animations — make them instant */
   .fade-up,
-  [class*="fade-up"] {
+  [class*="fade-up"],
+  .ev-card {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }

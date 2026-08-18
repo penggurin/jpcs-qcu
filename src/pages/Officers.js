@@ -112,49 +112,157 @@ const adviser = [
   {
     name: 'Ms. Mary Jean M. Jayobo',
     role: 'Chapter Adviser',
-    img: require('../officers/jayobo.jpg'),
-    socials: { ...PH },
+    img: require('../officers/jayobo.jpg')
   },
   {
     name: 'Mr. Christian B. Escoto',
     role: 'Program Chair',
-    img: require('../officers/escoto.jpg'),
-    socials: { ...PH },
+    img: require('../officers/escoto.jpg')
   },
 ];
 
 const executives = [
-  { name: 'Jay Marc M. Povadora',   role: 'Chapter President',        img: null, socials: { ...PH } },
-  { name: 'Aldrin Jazler M. Licup', role: 'Vice President – Internal', img: null, socials: { ...PH } },
-  { name: 'Lujille R. Pojas',       role: 'Vice President – External', img: null, socials: { ...PH } },
-  { name: 'Jean Piere R. Roxas',    role: 'Executive Secretary',       img: null, socials: { ...PH } },
+  { name: 'Jay Marc M. Povadora',   role: 'Chapter President',        img: require('../officers/povadora.png'),   socials: {
+    fb:       'https://www.facebook.com/share/1ERvwfZFGr/',
+    ig:       'https://www.instagram.com/jaymarcccccc?igsh=bzVyaDQzcnZ0aXNt',
+    github:   null,                    
+    linkedin: 'https://www.linkedin.com/in/jaymarcccccc?utm_source=share_via&utm_content=profile&utm_medium=member_android',
+  } },
+  { name: 'Aldrin Jazler M. Licup', role: 'Vice President – Internal', img: require('../officers/licup.png'), socials: {
+    fb:       null,
+    ig:       null,
+    github:   null,                        
+    linkedin: null,
+  } },
+  { name: 'Lujille R. Pojas',       role: 'Vice President – External', img: null, socials: {
+    fb:       null,
+    ig:       null,
+    github:   null,                        
+    linkedin: null,
+  } },
+  { name: 'Jean Piere R. Roxas',    role: 'Executive Secretary',       img: null, socials: {
+    fb:       'https://www.facebook.com/jp.roxas.249867/',
+    ig:       'https://www.instagram.com/roxas__jp/',
+    github:   'https://github.com/penggurin',                        
+    linkedin: 'https://linkedin.com/in/roxas-jean-piere-r-8bb80a385',
+  } },
 ];
 
 const directors = [
-  { name: 'Jessa Mae S. Lotilla',       role: 'Director, Documentation & Compliance', img: require('../officers/lotilla.png'), socials: { ...PH } },
-  { name: 'Eixer Ram R. Alobba',        role: 'Director, Human Resources',            img: require('../officers/alobba.jpeg'), socials: { ...PH } },
-  { name: 'Jhayced Chua',               role: 'Director, Financial Treasury',         img: null, socials: { ...PH } },
-  { name: 'Czamaria Marquez',           role: 'Director, Internal Audit',             img: null, socials: { ...PH } },
-  { name: 'Beverly Shayne L. Alaan',    role: 'Director, Creative Media',             img: null, socials: { ...PH } },
-  { name: 'Cleo Mel P. Villanueva',     role: 'Director, Marketing & Publicity',      img: require('../officers/villanueva.jpg'), socials: { ...PH } },
-  { name: 'Jeyanne L. Naynes',          role: 'Director, Partnerships & Sponsorships',img: require('../officers/naynes.jpg'), socials: { ...PH } },
-  { name: 'Prince Rayven G. Francisco', role: 'Director, Logistics & Operations',     img: null, socials: { ...PH } },
+  { name: 'Jessa Mae S. Lotilla',       role: 'Director, Documentation & Compliance', img: require('../officers/lotilla.png'), socials: {
+    fb:       null,
+    ig:       null,
+    github:   null,                        
+    linkedin: null,
+  } },
+  { name: 'Eixer Ram R. Alobba',        role: 'Director, Human Resources',            img: require('../officers/alobba.jpeg'), socials: {
+    fb:       null,
+    ig:       null,
+    github:   null,                        
+    linkedin: null,
+  } },
+  { name: 'Jhayced Chua',               role: 'Director, Financial Treasury',         img: require('../officers/chuaboy.jpg'), socials: {
+    fb:       null,
+    ig:       null,
+    github:   null,                        
+    linkedin: null,
+  } },
+  { name: 'Czamaria Marquez',           role: 'Director, Internal Audit',             img: null, socials: {
+    fb:       null,
+    ig:       null,
+    github:   null,                        
+    linkedin: null,
+  } },
+  { name: 'Beverly Shayne L. Alaan',    role: 'Director, Creative Media',             img: require('../officers/alaan.jpg'), socials: {
+    fb:       null,
+    ig:       null,
+    github:   null,                        
+    linkedin: null,
+  } },
+  { name: 'Cleo Mel P. Villanueva',     role: 'Director, Marketing & Publicity',      img: require('../officers/villanueva.jpg'), socials: {
+    fb:       'https://www.facebook.com/CleoMelV',
+    ig:       'https://www.instagram.com/lemoelcxxi/',
+    github:   null,                        
+    linkedin: null,
+  } },
+  { name: 'Jeyanne L. Naynes',          role: 'Director, Partnerships & Sponsorships',img: require('../officers/naynes.jpg'), socials: {
+    fb:       'https://www.facebook.com/jeyanne.naynes',
+    ig:       'https://www.instagram.com/rt.jeaaa?igsh=cG9pMjVsMG45ZXho',
+    github:   null,                        
+    linkedin: null,
+  } },
+  { name: 'Prince Rayven G. Francisco', role: 'Director, Logistics & Operations',     img: null, socials: {
+    fb:       null,
+    ig:       null,
+    github:   null,                        
+    linkedin: null,
+  } },
 ];
 
 const deputies = [
-  { name: 'Annette Mikalah Q. Alconaba',       role: 'Deputy Director, Documentation & Compliance', img: null, socials: { ...PH } },
-  { name: 'Mary Hae Flordelize M. Sambrano',   role: 'Deputy Director, Human Resources',            img: require('../officers/sambrano.jpg'), socials: { ...PH } },
-  { name: 'Reymart A. Rivera',                 role: 'Deputy Director, Financial Treasury',         img: require('../officers/rivera.jpg'), socials: { ...PH } },
-  { name: 'Lorraine Chua',                     role: 'Deputy Director, Internal Audit',             img: require('../officers/chuagirl.jpeg'), socials: { ...PH } },
-  { name: 'Ana Beatriz T. Bosito',             role: 'Deputy Director, Creative Media',             img: null, socials: { ...PH } },
-  { name: 'Elieza Mae Z. Gabion',              role: 'Deputy Director, Marketing & Publicity',      img: null, socials: { ...PH } },
-  { name: 'Elisha Marianne S. Valeroso',       role: 'Deputy Director, Partnerships & Sponsorships',img: null, socials: { ...PH } },
-  { name: 'Christian James E. Tormes',         role: 'Deputy Director, Logistics & Operations',     img: require('../officers/tormes.jpg'), socials: { ...PH } },
+  { name: 'Annette Mikalah Q. Alconaba',       role: 'Deputy Director, Documentation & Compliance', img: null, socials: {
+    fb:       null,
+    ig:       null,
+    github:   null,                        
+    linkedin: null,
+  } },
+  { name: 'Mary Hae Flordelize M. Sambrano',   role: 'Deputy Director, Human Resources',            img: require('../officers/sambrano.jpg'), socials: {
+    fb:       'https://www.facebook.com/share/1Kx1quf8GL/?mibextid=wwXIfr',
+    ig:       'https://www.instagram.com/da.hae_x0x0?igsh=MWdibmFqdm05eTJ1ZA%3D%3D&utm_source=qr',
+    github:   'https://github.com/Mary-Hae',                        
+    linkedin: 'https://www.linkedin.com/in/mary-hae-flordelize-sambrano?utm_source=share_via&utm_content=profile&utm_medium=member_ios',
+  } },
+  { name: 'Reymart A. Rivera',                 role: 'Deputy Director, Financial Treasury',         img: require('../officers/rivera.jpg'), socials: {
+    fb:       null,
+    ig:       null,
+    github:   null,                        
+    linkedin: null,
+  } },
+  { name: 'Lorraine Chua',                     role: 'Deputy Director, Internal Audit',             img: require('../officers/chuagirl.jpeg'), socials: {
+    fb:       null,
+    ig:       null,
+    github:   null,                        
+    linkedin: null,
+  } },
+  { name: 'Ana Beatriz T. Bosito',             role: 'Deputy Director, Creative Media',             img: null, socials: {
+    fb:       null,
+    ig:       null,
+    github:   null,                        
+    linkedin: null,
+  } },
+  { name: 'Elieza Mae Z. Gabion',              role: 'Deputy Director, Marketing & Publicity',      img: null, socials: {
+    fb:       null,
+    ig:       null,
+    github:   null,                        
+    linkedin: null,
+  } },
+  { name: 'Elisha Marianne S. Valeroso',       role: 'Deputy Director, Partnerships & Sponsorships',img: null, socials: {
+    fb:       'https://www.facebook.com/share/1DJWiXdD7n/',
+    ig:       null,
+    github:   null,                        
+    linkedin: null,
+  } },
+  { name: 'Christian James E. Tormes',         role: 'Deputy Director, Logistics & Operations',     img: require('../officers/tormes.jpg'), socials: {
+    fb:       'https://web.facebook.com/chrstn.jeyzmz/',
+    ig:       'https://www.instagram.com/chrstn.jeyzmz_/',
+    github:   'https://github.com/eirinshan',                        
+    linkedin: null,
+  }  },
 ];
 
 const bog = [
-  { name: 'Migel Rodrene Vens Papa',    role: 'Board of Governors – 2nd Year', img: require('../officers/papa.jpeg'), socials: { ...PH } },
-  { name: 'Jilian Rai R. Tusañeza',   role: 'Board of Governors – 2nd Year', img: require('../officers/tusaneza.jpg'), socials: { ...PH } },
+  { name: 'Migel Rodrene Vens Papa',    role: 'Board of Governors – 2nd Year', img: require('../officers/papa.jpeg'), socials: {
+    fb:       null,
+    ig:       null,
+    github:   null,                        
+    linkedin: null,
+  }    },
+  { name: 'Jilian Rai R. Tusañeza',   role: 'Board of Governors – 2nd Year', img: require('../officers/tusaneza.jpg'), socials: {
+    fb:       'https://www.facebook.com/jiliantusaneza',
+    ig:       'https://www.instagram.com/jilianraii/',
+    github:   'https://github.com/cyberaii',                        
+    linkedin: 'https://linkedin.com/in/jilian-rai-r-tusaneza-0ba5a8358',
+  } },
 ];
 
 // ── Social icon SVGs (brand colours) ─────────────────────────────
@@ -265,30 +373,7 @@ function SectionDivider({ label }) {
 }
 
 function Officers() {
-  const bodyRef    = useScrollReveal({ threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  // Hero element refs for staggered entrance
-  const eyebrowRef = useRef(null);
-  const titleRef   = useRef(null);
-  const subRef     = useRef(null);
-  const badgeRef   = useRef(null);
-
-  useEffect(() => {
-    const heroEls = [eyebrowRef.current, titleRef.current, subRef.current, badgeRef.current];
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    heroEls.forEach(el => el && observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
+  const bodyRef = useScrollReveal({ threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   return (
     <div className="page-wrapper officers-page-wrapper">
@@ -307,17 +392,17 @@ function Officers() {
       {/* ── Page Hero ── */}
       <section className="page-hero">
         <div className="page-hero-inner">
-          <div ref={eyebrowRef} className="page-hero-eyebrow reveal">
+          <div className="page-hero-eyebrow">
             <span className="page-hero-eyebrow-dot" /> JPCS – QCU CHAPTER
           </div>
-          <h1 ref={titleRef} className="page-hero-title reveal" style={{ transitionDelay: '0.1s' }}>
+          <h1 className="page-hero-title">
             OUR <span className="page-hero-gold">OFFICERS</span>
           </h1>
-          <p ref={subRef} className="page-hero-sub reveal" style={{ transitionDelay: '0.2s' }}>
+          <p className="page-hero-sub">
             The minds behind the code. Meet the student officers orchestrating
             our workshops, initiatives, and community growth.
           </p>
-          <div ref={badgeRef} className="page-hero-badge reveal" style={{ transitionDelay: '0.3s' }}>
+          <div className="page-hero-badge">
             AY 2026 – 2027
           </div>
         </div>

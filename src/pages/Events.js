@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import '../App.css';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -424,6 +424,17 @@ const allEvents = [
 const YEARS = ['ALL', '2026', '2025', '2024'];
 const CATS  = ['ALL', 'HOSTED', 'JOINED'];
 
+// Sort newest first: parse the first date segment (e.g. "May 20, 2026" → Date)
+function parseEventDate(dateStr) {
+  // Take the first date if it's a range like "Feb 10 – Mar 10, 2025"
+  const first = dateStr.split('–')[0].trim();
+  const d = new Date(first);
+  return isNaN(d.getTime()) ? new Date(0) : d;
+}
+const sortedEvents = [...allEvents].sort(
+  (a, b) => parseEventDate(b.date) - parseEventDate(a.date)
+);
+
 function getModeIcon(mode) {
   return mode === 'Online'
     ? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="13" height="13"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -538,10 +549,12 @@ function EventModal({ ev, onClose }) {
 
 // ── Event card ────────────────────────────────────────────────────
 function EventCard({ ev, i, onClick }) {
+  // Stagger within each row of 3 — resets per row so deep cards don't wait forever
+  const delay = (i % 3) * 0.08;
   return (
     <div
-      className="ev-card reveal"
-      style={{ transitionDelay: `${(i % 6) * 0.07}s` }}
+      className="ev-card"
+      style={{ animationDelay: `${delay}s` }}
       onClick={onClick}
       role="button"
       tabIndex={0}
@@ -618,59 +631,12 @@ function Events() {
   const [activeCat,  setActiveCat]  = useState('ALL');
   const [selected,   setSelected]   = useState(null);
 
-  // Re-run the observer whenever the filtered list changes so newly
-  // rendered cards get picked up immediately.
   const bodyRef = useScrollReveal({ threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
 
-  // Re-trigger reveal on filter change: reset card classes then re-observe
-  useEffect(() => {
-    const container = bodyRef.current;
-    if (!container) return;
-    const cards = Array.from(container.querySelectorAll('.ev-card.reveal'));
-    // briefly strip visible so cards animate in again after a filter change
-    cards.forEach(c => c.classList.remove('visible'));
-    const timer = setTimeout(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.08, rootMargin: '0px 0px -20px 0px' }
-      );
-      cards.forEach(c => observer.observe(c));
-      return () => observer.disconnect();
-    }, 30); // tiny delay lets React flush the new DOM
-    return () => clearTimeout(timer);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeYear, activeCat]);
+  // Changing this key remounts the grid so CSS animations replay on filter change
+  const gridKey = `${activeYear}-${activeCat}`;
 
-  // Hero reveal refs
-  const eyebrowRef = useRef(null);
-  const titleRef   = useRef(null);
-  const subRef     = useRef(null);
-
-  useEffect(() => {
-    const heroEls = [eyebrowRef.current, titleRef.current, subRef.current];
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    heroEls.forEach(el => el && observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
-  const filtered = allEvents.filter(e => {
+  const filtered = sortedEvents.filter(e => {
     const yearOk = activeYear === 'ALL' || String(e.year) === activeYear;
     const catOk  = activeCat  === 'ALL' || e.category.toUpperCase() === activeCat;
     return yearOk && catOk;
@@ -685,13 +651,13 @@ function Events() {
       {/* ── Page Hero ── */}
       <section className="page-hero">
         <div className="page-hero-inner">
-          <div ref={eyebrowRef} className="page-hero-eyebrow reveal">
+          <div className="page-hero-eyebrow">
             <span className="page-hero-eyebrow-dot" /> JPCS – QCU CHAPTER
           </div>
-          <h1 ref={titleRef} className="page-hero-title reveal" style={{ transitionDelay: '0.1s' }}>
+          <h1 className="page-hero-title">
             EVENT <span className="page-hero-gold">SHOWCASE</span>
           </h1>
-          <p ref={subRef} className="page-hero-sub reveal" style={{ transitionDelay: '0.2s' }}>
+          <p className="page-hero-sub">
             Explore our past hackathons, workshops, and seminars where our community
             pushed the boundaries of tech and brought bold ideas to life.
           </p>
@@ -745,7 +711,7 @@ function Events() {
 
           {/* Cards */}
           {filtered.length > 0 ? (
-            <div className="ev-grid">
+            <div className="ev-grid" key={gridKey}>
               {filtered.map((ev, i) => (
                 <EventCard
                   ev={ev}

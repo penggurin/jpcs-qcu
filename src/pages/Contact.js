@@ -10,7 +10,7 @@ const executives = [
     ),
     title: 'President',
     email: 'jpcsqcu.president@gmail.com',
-    phone: '+63 912 345 6789',
+    phone: '+63 993 036 1476',
   },
   {
     icon: (
@@ -113,7 +113,7 @@ const departments = [
     ),
     title: 'Marketing & Publicity',
     email: 'jpcsqcu.marketing@gmail.com',
-    phone: '+63 912 666 7777',
+    phone: '+63 993 813 8449',
   },
   {
     icon: (
@@ -124,7 +124,7 @@ const departments = [
     ),
     title: 'Partnerships & Collaborations',
     email: 'jpcsqcu.collaborations@gmail.com',
-    phone: '+63 912 777 8888',
+    phone: '+63 967 173 0840',
   },
   {
     icon: (

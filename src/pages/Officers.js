@@ -100,14 +100,6 @@ function OfficersCanvas() {
 // img:     require('../officers/filename.jpg')
 // socials: set URL strings, leave null to hide that icon
 
-// placeholder socials — replace each URL with the real profile link
-const PH = {
-  fb:       'https://facebook.com',
-  ig:       'https://instagram.com',
-  github:   'https://github.com',
-  linkedin: 'https://linkedin.com',
-};
-
 const adviser = [
   {
     name: 'Ms. Mary Jean M. Jayobo',

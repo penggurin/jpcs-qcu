@@ -153,7 +153,7 @@ const deputies = [
 ];
 
 const bog = [
-  { name: 'Migel Rodrene V. Papa',    role: 'Board of Governors – 2nd Year', img: require('../officers/papa.jpeg'), socials: { ...PH } },
+  { name: 'Migel Rodrene Vens Papa',    role: 'Board of Governors – 2nd Year', img: require('../officers/papa.jpeg'), socials: { ...PH } },
   { name: 'Jilian Rai R. Tusañeza',   role: 'Board of Governors – 2nd Year', img: require('../officers/tusaneza.jpg'), socials: { ...PH } },
 ];
 

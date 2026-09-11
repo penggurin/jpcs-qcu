@@ -126,13 +126,13 @@ const executives = [
     github:   null,                        
     linkedin: null,
   } },
-  { name: 'Lujille R. Pojas',       role: 'Vice President – External', img: require('../officers/roxas.jpg'), socials: {
+  { name: 'Lujille R. Pojas',       role: 'Vice President – External', img: null, socials: {
     fb:       null,
     ig:       null,
     github:   null,                        
     linkedin: null,
   } },
-  { name: 'Jean Piere R. Roxas',    role: 'Executive Secretary',       img: null, socials: {
+  { name: 'Jean Piere R. Roxas',    role: 'Executive Secretary',       img: require('../officers/roxas.jpg'), socials: {
     fb:       'https://www.facebook.com/jp.roxas.249867/',
     ig:       'https://www.instagram.com/roxas__jp/',
     github:   'https://github.com/penggurin',                        

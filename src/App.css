@@ -1291,7 +1291,7 @@ ul { list-style: none; }
 .officer-card-new {
   position: relative; border-radius: 12px; overflow: hidden;
   cursor: pointer; aspect-ratio: 3 / 4;
-  filter: grayscale(1) brightness(0.7);
+  filter: grayscale(0) brightness(0.7);
   transition: filter 0.45s ease, transform 0.45s ease, box-shadow 0.45s ease;
 }
 .officer-card-new:hover {

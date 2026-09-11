@@ -126,7 +126,7 @@ const executives = [
     github:   null,                        
     linkedin: null,
   } },
-  { name: 'Lujille R. Pojas',       role: 'Vice President – External', img: null, socials: {
+  { name: 'Lujille R. Pojas',       role: 'Vice President – External', img: require('../officers/roxas.jpg'), socials: {
     fb:       null,
     ig:       null,
     github:   null,                        

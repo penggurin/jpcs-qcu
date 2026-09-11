@@ -121,16 +121,16 @@ const executives = [
     linkedin: 'https://www.linkedin.com/in/jaymarcccccc?utm_source=share_via&utm_content=profile&utm_medium=member_android',
   } },
   { name: 'Aldrin Jazler M. Licup', role: 'Vice President – Internal', img: require('../officers/licup.png'), socials: {
-    fb:       null,
-    ig:       null,
-    github:   null,                        
-    linkedin: null,
+    fb:       'https://web.facebook.com/aldrin.jazler.licup.2024',
+    ig:       'https://www.instagram.com/jazler__/',
+    github:   'https://github.com/jazald23?tab=overview&from=2026-09-01&to=2026-09-11',                        
+    linkedin: 'www.linkedin.com/in/aldrin-jazler-licup-546545432',
   } },
-  { name: 'Lujille R. Pojas',       role: 'Vice President – External', img: null, socials: {
-    fb:       null,
-    ig:       null,
+  { name: 'Lujille R. Pojas',       role: 'Vice President – External', img: require('../officers/pojas.jpg'), socials: {
+    fb:       'https://www.facebook.com/share/14oe6fD6TVi/',
+    ig:       'https://www.instagram.com/chunjil2?igsi=aWMxNWJvajBneDZs',
     github:   null,                        
-    linkedin: null,
+    linkedin: 'www.linkedin.com/in/ lujille-pojas-712a61253',
   } },
   { name: 'Jean Piere R. Roxas',    role: 'Executive Secretary',       img: require('../officers/roxas.jpg'), socials: {
     fb:       'https://www.facebook.com/jp.roxas.249867/',
@@ -154,7 +154,7 @@ const directors = [
     linkedin: null,
   } },
   { name: 'Jhayced Chua',               role: 'Director, Financial Treasury',         img: require('../officers/chuaboy.jpg'), socials: {
-    fb:       null,
+    fb:       'https://www.facebook.com/jhayced.chua.2025/',
     ig:       null,
     github:   null,                        
     linkedin: null,
@@ -166,7 +166,7 @@ const directors = [
     linkedin: null,
   } },
   { name: 'Beverly Shayne L. Alaan',    role: 'Director, Creative Media',             img: require('../officers/alaan.jpg'), socials: {
-    fb:       null,
+    fb:       'https://www.facebook.com/share/1HqijqxN4Y/',
     ig:       null,
     github:   null,                        
     linkedin: null,
@@ -211,14 +211,14 @@ const deputies = [
     linkedin: null,
   } },
   { name: 'Lorraine Chua',                     role: 'Deputy Director, Internal Audit',             img: require('../officers/chuagirl.jpeg'), socials: {
-    fb:       null,
-    ig:       null,
+    fb:       'https://www.facebook.com/lorrainebelle.chua',
+    ig:       'https://www.instagram.com/lxrreyne/',
     github:   null,                        
     linkedin: null,
   } },
-  { name: 'Ana Beatriz T. Bosito',             role: 'Deputy Director, Creative Media',             img: null, socials: {
-    fb:       null,
-    ig:       null,
+  { name: 'Ana Beatriz T. Bosito',             role: 'Deputy Director, Creative Media',             img: require('../officers/bosito.jpg'), socials: {
+    fb:       'https://www.facebook.com/articltrizzz/',
+    ig:       'https://www.instagram.com/articltriz/',
     github:   null,                        
     linkedin: null,
   } },
@@ -244,8 +244,8 @@ const deputies = [
 
 const bog = [
   { name: 'Migel Rodrene Vens Papa',    role: 'Board of Governors – 2nd Year', img: require('../officers/papa.jpeg'), socials: {
-    fb:       null,
-    ig:       null,
+    fb:       'facebook.com/migel.papa.2024',
+    ig:       'https://www.instagram.com/mrcdsvens',
     github:   null,                        
     linkedin: null,
   }    },

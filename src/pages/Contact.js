@@ -21,7 +21,7 @@ const executives = [
     ),
     title: 'Vice President – Internal',
     email: 'jpcsqcu.vpinternal@gmail.com',
-    phone: '+63 923 456 7890',
+    phone: '+63 945 624 1168',
   },
   {
     icon: (
@@ -33,7 +33,7 @@ const executives = [
     ),
     title: 'Vice President – External',
     email: 'jpcsqcu.vpexternal@gmail.com',
-    phone: '+63 934 567 8901',
+    phone: '+63 927 148 6751',
   },
   {
     icon: (
@@ -45,7 +45,7 @@ const executives = [
       </svg>
     ),
     title: 'Executive Secretary',
-    email: 'jpcsqcu.secretary@gmail.com',
+    email: 'jpcs.qcu@gmail.com',
     phone: '+63 945 678 9012',
   },
 ];
@@ -58,7 +58,7 @@ const departments = [
         <polyline points="14 2 14 8 20 8" />
       </svg>
     ),
-    title: 'Documentation & Compliance',
+    title: 'Associate Secretary',
     email: 'jpcsqcu.documents@gmail.com',
     phone: '+63 912 111 2222',
   },
@@ -82,7 +82,7 @@ const departments = [
     ),
     title: 'Financial Treasury',
     email: 'jpcsqcu.finance@gmail.com',
-    phone: '+63 912 333 4444',
+    phone: '+63 963 381 9812',
   },
   {
     icon: (
@@ -102,7 +102,7 @@ const departments = [
     ),
     title: 'Creative Media',
     email: 'jpcsqcu.creativemedia@gmail.com',
-    phone: '+63 912 555 6666',
+    phone: '+63 905 495 1011',
   },
   {
     icon: (
@@ -136,16 +136,6 @@ const departments = [
     title: 'Logistics & Operations',
     email: 'jpcsqcu.operations@gmail.com',
     phone: '+63 912 888 9999',
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="20" height="20">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.96-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.9 16.5z" />
-      </svg>
-    ),
-    title: 'Communications',
-    email: 'jpcsqcu.communications@gmail.com',
-    phone: '+63 912 999 0000',
   },
 ];
 

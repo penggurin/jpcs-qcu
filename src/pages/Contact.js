@@ -192,7 +192,7 @@ function Contact() {
         <div className="dept-container">
           <div className="section-eyebrow reveal">GET IN TOUCH</div>
           <h2 className="section-heading reveal">CHAPTER <span className="gold">DEPARTMENTS</span></h2>
-          <div className="dept-grid dept-grid-3">
+          <div className="dept-grid dept-grid-4">
             {departments.map((d, i) => <DeptCard dept={d} key={i} />)}
           </div>
         </div>

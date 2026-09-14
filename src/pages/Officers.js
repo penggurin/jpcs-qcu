@@ -141,7 +141,7 @@ const executives = [
 ];
 
 const directors = [
-  { name: 'Jessa Mae S. Lotilla',       role: 'Director, Documentation & Compliance', img: require('../officers/lotilla.png'), socials: {
+  { name: 'Jessa Mae S. Lotilla',       role: 'Director, Associate Secretary', img: require('../officers/lotilla.png'), socials: {
     fb:       null,
     ig:       null,
     github:   null,                        
@@ -177,7 +177,7 @@ const directors = [
     github:   null,                        
     linkedin: null,
   } },
-  { name: 'Jeyanne L. Naynes',          role: 'Director, Partnerships & Sponsorships',img: require('../officers/naynes.jpg'), socials: {
+  { name: 'Jeyanne L. Naynes',          role: 'Director, Public Relations',img: require('../officers/naynes.jpg'), socials: {
     fb:       'https://www.facebook.com/jeyanne.naynes',
     ig:       'https://www.instagram.com/rt.jeaaa?igsh=cG9pMjVsMG45ZXho',
     github:   null,                        
@@ -192,7 +192,7 @@ const directors = [
 ];
 
 const deputies = [
-  { name: 'Annette Mikalah Q. Alconaba',       role: 'Deputy Director, Documentation & Compliance', img: null, socials: {
+  { name: 'Annette Mikalah Q. Alconaba',       role: 'Deputy Director, Associate Secretary', img: null, socials: {
     fb:       null,
     ig:       null,
     github:   null,                        
@@ -228,7 +228,7 @@ const deputies = [
     github:   null,                        
     linkedin: null,
   } },
-  { name: 'Elisha Marianne S. Valeroso',       role: 'Deputy Director, Partnerships & Sponsorships',img: null, socials: {
+  { name: 'Elisha Marianne S. Valeroso',       role: 'Deputy Director, Public Relations',img: null, socials: {
     fb:       'https://www.facebook.com/share/1DJWiXdD7n/',
     ig:       null,
     github:   null,                        
@@ -304,6 +304,8 @@ function Silhouette() {
 // ── Card ──────────────────────────────────────────────────────────
 function OfficerCard({ officer, large, index = 0 }) {
   const activeSocials = Object.entries(officer.socials || {}).filter(([, v]) => v !== null);
+  // 2-line roles need a taller peek so the full text is visible at rest
+  const tallRole = officer.role.length > 36;
 
   return (
     <div
@@ -321,7 +323,10 @@ function OfficerCard({ officer, large, index = 0 }) {
       </div>
 
       {/* Always-visible info at bottom */}
-      <div className="officer-card-info">
+      <div
+        className="officer-card-info"
+        style={tallRole ? { '--peek': '68px' } : undefined}
+      >
         <div className="officer-card-name">{officer.name}</div>
         <div className="officer-card-role">{officer.role}</div>
 

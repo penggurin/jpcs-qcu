@@ -1313,14 +1313,20 @@ ul { list-style: none; }
 }
 .officer-silhouette { width: 80%; max-width: 180px; opacity: 0.4; margin-bottom: -10px; }
 .officer-photo-overlay {
-  position: absolute; bottom: 0; left: 0; right: 0; height: 65%;
-  background: linear-gradient(to top, rgba(8,6,12,0.97) 0%, rgba(107,26,26,0.2) 55%, transparent 100%);
+  position: absolute; bottom: 0; left: 0; right: 0; height: 80%;
+  background: linear-gradient(to top, rgba(8,6,12,0.98) 0%, rgba(8,6,12,0.6) 40%, rgba(107,26,26,0.15) 65%, transparent 100%);
   pointer-events: none;
 }
 
 .officer-card-info {
   position: absolute; bottom: 0; left: 0; right: 0;
   padding: 12px 14px 14px; z-index: 10; pointer-events: none;
+  transform: translateY(calc(100% - var(--peek, 52px)));
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.officer-card-new:hover .officer-card-info {
+  transform: translateY(0);
+  pointer-events: auto;
 }
 .officer-card-name {
   font-family: var(--font-jakarta); font-size: clamp(11px, 1vw, 13px);
@@ -1335,13 +1341,10 @@ ul { list-style: none; }
 
 .officer-socials-divider {
   width: 100%; height: 1px; background: rgba(255,255,255,0.15);
-  margin: 8px 0 7px; opacity: 0; transform: translateY(4px);
-  transition: opacity 0.3s ease, transform 0.3s ease; pointer-events: none;
+  margin: 8px 0 7px; pointer-events: none;
 }
 .officer-card-socials {
   display: flex; gap: 10px; align-items: center;
-  opacity: 0; transform: translateY(4px);
-  transition: opacity 0.3s ease 0.04s, transform 0.3s ease 0.04s;
 }
 .officer-card-new:hover .officer-socials-divider,
 .officer-card-new:hover .officer-card-socials { opacity: 1; transform: translateY(0); }

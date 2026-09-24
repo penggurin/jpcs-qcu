@@ -655,22 +655,144 @@ function Events() {
             <span className="page-hero-eyebrow-dot" /> JPCS – QCU CHAPTER
           </div>
           <h1 className="page-hero-title">
-            EVENT <span className="page-hero-gold">SHOWCASE</span>
+            OUR <span className="page-hero-gold">EVENTS</span>
           </h1>
           <p className="page-hero-sub">
-            Explore our past hackathons, workshops, and seminars where our community
-            pushed the boundaries of tech and brought bold ideas to life.
+            From hackathons to seminars — everything the JPCS-QCU Chapter organizes,
+            hosts, and joins throughout the academic year.
           </p>
         </div>
       </section>
 
-      {/* ── Filters + grid ── */}
+      {/* ── Upcoming Event Registration ── */}
+      <section className="reg-banner-section">
+        <div className="reg-banner-inner">
+
+          <div className="reg-banner-live-badge">
+            <span className="reg-banner-live-dot" />
+            REGISTRATION NOW OPEN
+          </div>
+
+          <div className="reg-banner-body">
+
+            {/* Poster */}
+            <div className="reg-banner-poster">
+              {(() => {
+                try {
+                  const poster = require('../events/hosted-2026-2027/commit-push-repeat/poster.jpg');
+                  return <img src={poster} alt="Commit Push Repeat Poster" className="reg-banner-poster-img" />;
+                } catch {
+                  return (
+                    <div className="reg-banner-poster-placeholder">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" width="36" height="36">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
+                      </svg>
+                      <span>Event Poster</span>
+                      <span className="reg-banner-poster-hint">
+                        src/events/hosted-2026-2027/<br/>commit-push-repeat/poster.jpg
+                      </span>
+                    </div>
+                  );
+                }
+              })()}
+              <div className="reg-banner-poster-corner reg-banner-poster-corner-tl" />
+              <div className="reg-banner-poster-corner reg-banner-poster-corner-br" />
+            </div>
+
+            {/* Details */}
+            <div className="reg-banner-details">
+              <div className="reg-banner-eyebrow">UPCOMING HOSTED EVENT · 2026–2027</div>
+              <h2 className="reg-banner-title">COMMIT &gt; PUSH &gt; REPEAT</h2>
+              <p className="reg-banner-subtitle">An Introduction to Git and GitHub</p>
+
+              <div className="reg-banner-meta">
+                <div className="reg-banner-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="15" height="15">
+                    <rect x="3" y="4" width="18" height="18" rx="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                  </svg>
+                  <span>September 25, 2026</span>
+                </div>
+                <div className="reg-banner-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="15" height="15">
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                  <span>12:00 NN – 4:00 PM</span>
+                </div>
+                <div className="reg-banner-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="15" height="15">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                  <span>QCU Auditorium, Quezon City University</span>
+                </div>
+                <div className="reg-banner-meta-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="15" height="15">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                  <span>Open to CCS Students &amp; Delegates</span>
+                </div>
+              </div>
+
+              <p className="reg-banner-desc">
+                Learn the fundamentals of version control and collaborative development.
+                This hands-on event covers Git basics, GitHub repositories, branching,
+                commits, pull requests, and building your developer portfolio — led by
+                industry professionals and student practitioners.
+              </p>
+
+              <div className="reg-banner-topics">
+                <div className="reg-banner-topic-chip">Git Fundamentals</div>
+                <div className="reg-banner-topic-chip">GitHub Repos</div>
+                <div className="reg-banner-topic-chip">Branching</div>
+                <div className="reg-banner-topic-chip">Pull Requests</div>
+                <div className="reg-banner-topic-chip">Dev Portfolio</div>
+              </div>
+
+              <div className="reg-banner-actions">
+                <a
+                  href="https://luma.com/9wwvoe5c"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="reg-banner-btn-primary"
+                >
+                  &gt; REGISTER NOW
+                </a>
+                <div className="reg-banner-contact">
+                  <span>Questions?</span>
+                  <a href="mailto:jpcs.qcu@gmail.com">jpcs.qcu@gmail.com</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── Event Showcase (Past Events) ── */}
       <section className="events-body">
         <div className="events-body-inner" ref={bodyRef}>
 
+          {/* Section label */}
+          <div className="events-showcase-header reveal">
+            <div className="events-showcase-eyebrow">EVENT SHOWCASE</div>
+            <h2 className="events-showcase-heading">
+              PAST <span className="text-gold">EVENTS</span>
+            </h2>
+            <p className="events-showcase-sub">
+              A look back at every hackathon, workshop, seminar, and collaboration
+              we've been part of.
+            </p>
+          </div>
+
           {/* Filter bar */}
           <div className="events-filter-bar reveal">
-            {/* Category toggle */}
             <div className="events-filter-group">
               <span className="events-filter-label">Category:</span>
               <div className="events-filter-pills">
@@ -685,8 +807,6 @@ function Events() {
                 ))}
               </div>
             </div>
-
-            {/* Year filter */}
             <div className="events-filter-group">
               <span className="events-filter-label">Year:</span>
               <div className="events-filter-pills">
@@ -701,8 +821,6 @@ function Events() {
                 ))}
               </div>
             </div>
-
-            {/* Count summary */}
             <div className="events-filter-summary">
               <span className="ev-summary-chip ev-summary-hosted">{hostedCount} Hosted</span>
               <span className="ev-summary-chip ev-summary-joined">{joinedCount} Joined</span>

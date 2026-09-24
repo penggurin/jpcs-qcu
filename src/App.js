@@ -627,7 +627,7 @@ function AboutChapter() {
 
           <div className="home-about-stats">
             <div className="home-about-stat">
-              <div className="home-about-stat-num">50+</div>
+              <div className="home-about-stat-num">180+</div>
               <div className="home-about-stat-label">ACTIVE MEMBERS</div>
             </div>
             <div className="home-about-stat-divider" />
@@ -684,11 +684,7 @@ function AboutChapter() {
             </div>
           </div>
 
-          {/* Floating HUD badge */}
-          <div className="collage-hud-badge">
-            <span className="collage-hud-dot" />
-            LIVE COMMUNITY
-          </div>
+
 
         </div>
       </div>
